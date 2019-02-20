@@ -10,8 +10,7 @@ const initialState = {
   publishedTweets: [
     {
       timestamp: moment().format("LLLL"),
-      text:
-        "Today we’re sharing our vision for the future of the Twitter API platform!nhttps://t.co/XweGngmxlP",
+      text: "First tweet",
       user: "Default"
     }
   ],
@@ -35,7 +34,7 @@ export default (prevState = initialState, action) => {
     case SET_NEW_TWEET:
       return {
         ...prevState,
-        newTweets: [...prevState.newTweets, action.payload]
+        newTweets: [action.payload, ...prevState.newTweets]
       };
     default:
       return prevState;
