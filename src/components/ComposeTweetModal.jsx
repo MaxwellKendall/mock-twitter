@@ -2,31 +2,35 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import Modal from "react-modal";
 
-import { publishTweet, toggleModal, updateDraftTweet } from "../actions";
+import { setNewTweet, updateDraftTweet } from "../actions";
 
 class ComposeTweetModal extends Component {
   updateDraftTweet = e => {
     this.props.updateDraftTweet(e.target.value);
   };
 
-  publishTweet = () => {
-    this.props.publishTweet({ text: this.props.draftTweet });
+  setNewTweet = () => {
+    this.props.setNewTweet(this.props.draftTweet);
   };
 
   render() {
     return (
       <Modal
         isOpen={this.props.showModal}
+        shouldCloseOnEsc
+        className="compose-tweet-modal__container"
+        shouldCloseOnOverlayClick
         onRequestClose={() => this.props.setModal(false)}
       >
-        <div className="compose-tweet-modal">
-          <h1 className="compose-tweet-modal__header">Compose your tweet!</h1>
-          <input
+        <h1 className="compose-tweet-modal__header">Compose new tweet</h1>
+        <div className="compose-tweet-modal__body">
+          <textarea
             type="text"
+            maxlength="220"
             value={this.props.draftTweet}
             onChange={this.updateDraftTweet}
           />
-          <button onClick={this.publishTweet}>Tweet</button>
+          <button onClick={this.setNewTweet}>Tweet</button>
         </div>
       </Modal>
     );
@@ -38,7 +42,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  publishTweet: tweet => dispatch(publishTweet(tweet)),
+  setNewTweet: tweet => dispatch(setNewTweet(tweet)),
   updateDraftTweet: tweet => dispatch(updateDraftTweet(tweet))
 });
 
