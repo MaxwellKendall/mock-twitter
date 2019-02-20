@@ -1,10 +1,11 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-export const Tweet = ({ created_at, id, id_str, text, user, entities }) => {
+export const Tweet = ({ timestamp, text, user }) => {
   return (
     <div className="tweet">
-      <p className="tweet__text">{text}</p>
+      <p className="tweet__timestamp">{timestamp}</p>
+      <p className="tweet__text">{`${user}: ${text}`}</p>
     </div>
   );
 };
