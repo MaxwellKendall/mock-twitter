@@ -1,4 +1,4 @@
-import { PUBLISH_TWEET } from "../actions";
+import { PUBLISH_TWEET, UPDATE_DRAFT_TWEET } from "../actions";
 
 const initialState = {
   publishedTweets: [
@@ -7,19 +7,27 @@ const initialState = {
       id: 850006245121695744,
       id_str: "850006245121695744",
       text:
-        "1/ Today we’re sharing our vision for the future of the Twitter API platform!nhttps://t.co/XweGngmxlP",
+        "Today we’re sharing our vision for the future of the Twitter API platform!nhttps://t.co/XweGngmxlP",
       user: {},
       entities: {}
     }
   ],
   newTweetCount: 0,
-  draftTweet: {}
+  draftTweet: ""
 };
 
 export default (prevState = initialState, action) => {
   switch (action.type) {
     case PUBLISH_TWEET:
-      return { ...prevState, tweets: [...prevState.tweets, action.payload] };
+      return {
+        ...prevState,
+        publishedTweets: [...prevState.publishedTweets, action.payload]
+      };
+    case UPDATE_DRAFT_TWEET:
+      return {
+        ...prevState,
+        draftTweet: action.payload
+      };
     default:
       return prevState;
   }
