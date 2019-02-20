@@ -1,9 +1,15 @@
 import React from "react";
-import propTypes from "prop-types";
+import PropTypes from "prop-types";
 
-export const Tweet = ({}) => {
-  return <div>this is a tweet</div>;
+export const Tweet = ({ created_at, id, id_str, text, user, entities }) => {
+  return (
+    <div className="tweet">
+      <p className="tweet__text">{text}</p>
+    </div>
+  );
 };
 
-Tweet.PropTypes = {};
+Tweet.propTypes = {
+  text: PropTypes.string
+};
 Tweet.defaultProps = {};
