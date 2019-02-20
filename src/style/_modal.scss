@@ -1,0 +1,30 @@
+.compose-tweet-modal__container {
+  position: absolute;
+  top: 10vh;
+  left: 10vh;
+  right: 10vh;
+  border: 1px solid rgb(204, 204, 204);
+  background: rgb(255, 255, 255);
+  overflow: auto;
+  border-radius: 4px;
+  outline: none;
+  padding: 20px;
+  @include flex-box-center(column);
+
+  .compose-tweet-modal__header {
+    text-align: center;
+  }
+
+  .compose-tweet-modal__body {
+    @include flex-box-center(column);
+    width: 75%;
+  }
+
+  button {
+    @extend %background-styles;
+    padding: 1em;
+    border-radius: 1em;
+    align-self: flex-end;
+    margin-top: 1em;
+  }
+}

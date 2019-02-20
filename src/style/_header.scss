@@ -1,3 +1,19 @@
-h1 {
-  color: red;
+.header {
+  @include flex-box-center(column);
+  h1 {
+    color: $twitter-blue;
+    font-size: $header-size;
+  }
+  svg {
+    color: white;
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}
+
+button.header__tweet-btn {
+  padding: 1em 3em;
+  border-radius: 1em;
+  @extend %background-styles;
 }

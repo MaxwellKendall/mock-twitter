@@ -1,4 +1,26 @@
+html,
+body,
+#app {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  background: rgb(230, 236, 240);
+}
+
+.ReactModal__Body--open {
+  background: rgba(0, 0, 0, 0.5);
+}
+
 //Place styles here
+@import "vars";
+@import "selectors";
+@import "mixins";
 @import "feed";
 @import "tweet";
 @import "header";
+@import "modal";
+
+.main {
+  @include flex-box-center(column);
+  width: 100%;
+}
