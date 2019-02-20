@@ -1,32 +1,41 @@
-import { PUBLISH_TWEET, UPDATE_DRAFT_TWEET } from "../actions";
+import moment from "moment";
+
+import {
+  DISPLAY_ALL_TWEETS,
+  UPDATE_DRAFT_TWEET,
+  SET_NEW_TWEET
+} from "../actions";
 
 const initialState = {
   publishedTweets: [
     {
-      created_at: "Thu Apr 06 15:24:15 +0000 2017",
-      id: 850006245121695744,
-      id_str: "850006245121695744",
+      timestamp: moment().format("LLLL"),
       text:
         "Today we’re sharing our vision for the future of the Twitter API platform!nhttps://t.co/XweGngmxlP",
-      user: {},
-      entities: {}
+      user: "Default"
     }
   ],
-  newTweetCount: 0,
+  newTweets: [],
   draftTweet: ""
 };
 
 export default (prevState = initialState, action) => {
   switch (action.type) {
-    case PUBLISH_TWEET:
+    case DISPLAY_ALL_TWEETS:
       return {
         ...prevState,
-        publishedTweets: [...prevState.publishedTweets, action.payload]
+        publishedTweets: [...prevState.newTweets, ...prevState.publishedTweets],
+        newTweets: []
       };
     case UPDATE_DRAFT_TWEET:
       return {
         ...prevState,
         draftTweet: action.payload
+      };
+    case SET_NEW_TWEET:
+      return {
+        ...prevState,
+        newTweets: [...prevState.newTweets, action.payload]
       };
     default:
       return prevState;
