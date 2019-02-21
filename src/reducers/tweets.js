@@ -34,7 +34,8 @@ export default (prevState = initialState, action) => {
     case SET_NEW_TWEET:
       return {
         ...prevState,
-        newTweets: [action.payload, ...prevState.newTweets]
+        newTweets: [action.payload, ...prevState.newTweets],
+        draftTweet: ""
       };
     default:
       return prevState;
