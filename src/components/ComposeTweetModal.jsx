@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import Modal from "react-modal";
+import cx from "classnames";
 
 import { setNewTweet, updateDraftTweet } from "../actions";
 
@@ -15,6 +16,7 @@ class ComposeTweetModal extends Component {
   };
 
   render() {
+    const isDisabled = this.props.draftTweet.length === 0;
     return (
       <Modal
         isOpen={this.props.showModal}
@@ -31,7 +33,13 @@ class ComposeTweetModal extends Component {
             value={this.props.draftTweet}
             onChange={this.updateDraftTweet}
           />
-          <button onClick={this.setNewTweet}>Tweet</button>
+          <button
+            disabled={isDisabled}
+            onClick={this.setNewTweet}
+            className={cx({ disabled: isDisabled })}
+          >
+            Tweet
+          </button>
         </div>
       </Modal>
     );

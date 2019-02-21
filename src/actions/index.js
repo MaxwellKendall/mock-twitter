@@ -11,7 +11,7 @@ export const setNewTweet = text => ({
   payload: {
     text,
     timestamp: moment().format("LLLL"),
-    user: "Default"
+    user: "Default User Name"
   }
 });
 

@@ -37,5 +37,12 @@
     border-radius: 1em;
     align-self: flex-end;
     margin-top: 1em;
+    cursor: pointer;
+  }
+
+  .disabled {
+    border: 1px solid $twitter-blue;
+    background: white;
+    color: $twitter-blue;
   }
 }

@@ -10,8 +10,9 @@ const initialState = {
   publishedTweets: [
     {
       timestamp: moment().format("LLLL"),
-      text: "First tweet",
-      user: "Default"
+      text:
+        "Check out my portfolio site at maxwellkendall.github.io which has examples of stuff with cleaner css etc... This project is just to show pretty basic grasp on redux and react.",
+      user: "Default User Name"
     }
   ],
   newTweets: [],
