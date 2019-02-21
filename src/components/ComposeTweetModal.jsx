@@ -11,6 +11,7 @@ class ComposeTweetModal extends Component {
 
   setNewTweet = () => {
     this.props.setNewTweet(this.props.draftTweet);
+    this.props.setModal(false);
   };
 
   render() {
