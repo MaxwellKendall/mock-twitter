@@ -1,4 +1,5 @@
 .feed {
   @include flex-box-center(column);
   padding-top: 1em;
+  width: 75%;
 }

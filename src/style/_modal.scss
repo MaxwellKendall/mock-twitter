@@ -1,23 +1,34 @@
 .compose-tweet-modal__container {
-  position: absolute;
-  top: 10vh;
-  left: 10vh;
-  right: 10vh;
   border: 1px solid rgb(204, 204, 204);
   background: rgb(255, 255, 255);
   overflow: auto;
   border-radius: 4px;
   outline: none;
-  padding: 20px;
+  align-items: center;
+  width: 40%;
+  margin: auto;
+  margin-top: 5em;
   @include flex-box-center(column);
+  padding: 0.5rem 1rem;
 
   .compose-tweet-modal__header {
     text-align: center;
+    margin: 0;
+    padding-bottom: 1rem;
+    color: $twitter-blue;
   }
 
   .compose-tweet-modal__body {
     @include flex-box-center(column);
-    width: 75%;
+    width: 95%;
+
+    textarea {
+      border: 1px solid $twitter-blue;
+      width: 100%;
+      height: 6rem;
+      font-size: 24px;
+      text-indent: 5px;
+    }
   }
 
   button {

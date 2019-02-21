@@ -5,4 +5,8 @@
   border-radius: 1em;
   background: white;
   width: 100%;
+  p {
+    // for some reason, blablabla won't word wrap whereas actual words do.
+    overflow: hidden;
+  }
 }
